@@ -43,7 +43,8 @@ namespace FirstXFApp.Views
 
             Note = new Note {
                 Heading = "Test Note",
-                Text = "Text for test note."
+                Text = "Text for test note.",
+                Course = CourseList[0]
             };
         }
 
