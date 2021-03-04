@@ -13,7 +13,7 @@ namespace FirstXFApp.Views
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
-        public Note Note { get; set; }
+
         public IList<String> CourseList { get; set; }
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
@@ -21,7 +21,8 @@ namespace FirstXFApp.Views
             InitializeComponent();
             InitializeData();
 
-            BindingContext = Note;
+            this.viewModel = viewModel;
+            BindingContext = this.viewModel;
             NoteCourse.BindingContext = this;
         }
 
@@ -31,8 +32,8 @@ namespace FirstXFApp.Views
             InitializeData();
 
 
-
-            BindingContext = Note;
+            viewModel = new ItemDetailViewModel();
+            BindingContext = viewModel;
             NoteCourse.BindingContext = this;
         }
 
@@ -41,11 +42,6 @@ namespace FirstXFApp.Views
             var pluralsightDataStore = new MockPluralsightDataStore();
             CourseList = await pluralsightDataStore.GetCoursesAsync();
 
-            Note = new Note {
-                Heading = "Test Note",
-                Text = "Text for test note.",
-                Course = CourseList[0]
-            };
         }
 
         public void Cancel_Clicked(object sender, EventArgs args)

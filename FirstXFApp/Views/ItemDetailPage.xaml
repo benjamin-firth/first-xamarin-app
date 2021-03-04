@@ -17,12 +17,12 @@
             
         </Picker>
         <Entry
-            Text="{Binding Heading}"
+            Text="{Binding Note.Heading}"
             x:Name="NoteHeading"
             Placeholder="Note heading"
             FontSize="Medium" />
         <Editor
-            Text="{Binding Text}"
+            Text="{Binding Note.Text}"
             AutoSize="TextChanges"
             x:Name="NoteText"
             Placeholder="Note text"
