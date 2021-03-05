@@ -17,7 +17,7 @@
             
         </Picker>
         <Entry
-            Text="{Binding Note.Heading}"
+            Text="{Binding NoteHeading}"
             x:Name="NoteHeading"
             Placeholder="Note heading"
             FontSize="Medium" />

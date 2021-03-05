@@ -14,39 +14,26 @@ namespace FirstXFApp.Views
     {
         ItemDetailViewModel viewModel;
 
-        public IList<String> CourseList { get; set; }
-
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
-            InitializeData();
 
             this.viewModel = viewModel;
             BindingContext = this.viewModel;
-            NoteCourse.BindingContext = this;
         }
 
         public ItemDetailPage()
         {
             InitializeComponent();
-            InitializeData();
-
 
             viewModel = new ItemDetailViewModel();
             BindingContext = viewModel;
-            NoteCourse.BindingContext = this;
-        }
-
-        async void InitializeData()
-        {
-            var pluralsightDataStore = new MockPluralsightDataStore();
-            CourseList = await pluralsightDataStore.GetCoursesAsync();
-
         }
 
         public void Cancel_Clicked(object sender, EventArgs args)
         {
-            DisplayAlert("Cancelled!", "Cancel successful", "Accept", "Deny");
+            viewModel.NoteHeading = "XXXXX";
+            DisplayAlert("Cancelled!", $"Heading value is {viewModel.Note.Heading}", "Accept", "Deny");
         }
 
         public void Save_Clicked(object sender, EventArgs args)
